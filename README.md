@@ -65,81 +65,26 @@ https://www.figma.com/design/zFQBH6OcYzGv6vobeXqATc/Untitled?node-id=0-1&p=f&t=F
 
 API Методы
 
-1. Метод добавления товара в корзину
-POST /cart
-
-Описание: Добавление товара в корзину пользователя.
-Параметры запроса:
-json
-Копировать
-{
-  "userId": 123,
-  "productId": 456,
-  "quantity": 2
-}
-Ответ:
-json
-Копировать
-{
-  "status": "success",
-  "message": "Product added to cart",
-  "cartId": 789
-}
-
-2. Метод оформления заказа
+1. Метод оформления заказа
 POST /orders
-
 Описание: Оформление заказа с выбранными товарами в корзине.
 Параметры запроса:
-json
-Копировать
 {
   "userId": 123,
   "cartId": 789,
   "shippingAddress": "123 Main St, City, Country",
   "paymentMethod": "credit_card"
 }
-Ответ:
-json
-Копировать
 {
   "status": "success",
   "orderId": 1011,
   "message": "Order created successfully"
 }
 
-3. Метод выполнения оплаты
-POST /payment
-
-Описание: Выполнение оплаты заказа.
-Параметры запроса:
-json
-Копировать
-{
-  "orderId": 1011,
-  "paymentDetails": {
-    "cardNumber": "4111111111111111",
-    "expirationDate": "12/25",
-    "cvv": "123"
-  }
-}
-Ответ:
-json
-Копировать
-{
-  "status": "success",
-  "message": "Payment successful",
-  "paymentId": 2022
-}
-
-4. Метод получения подтверждения
+2. Метод получения подтверждения
 GET /orders/{orderId}/confirmation
-
 Описание: Получение подтверждения о заказе.
 Параметры запроса: Параметр orderId в URL.
-Ответ:
-json
-Копировать
 {
   "status": "success",
   "orderId": 1011,
